@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Console 🔒</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <div id="gate" class="gate">
+    <div class="gate-card">
+      <h2>Admin Access</h2>
+      <p class="muted">Enter owner email to unlock.</p>
+      <div class="row">
+        <input type="email" id="ownerEmail" placeholder="owner@example.com">
+      </div>
+      <div class="row">
+        <button class="primary" id="unlockBtn">Unlock</button>
+        <a href="../index.html" class="secondary" style="text-decoration:none;display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#f2f3ff">Main Site</a>
+      </div>
+      <p class="muted small">Md. Ahsanur Rahaman</p>
+    </div>
+  </div>
+
+  <main id="dashboard" class="wrap" style="display:none;">
+    <div class="topbar">
+      <h2>Admin Console</h2>
+      <div class="right">
+        <button class="secondary" id="refreshBtn">Refresh</button>
+        <a href="../index.html?admin=1" class="secondary" style="text-decoration:none;display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#f2f3ff">Open Main Panel</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Users</h3>
+        <p class="muted small">Click a user to view details.</p>
+        <div id="usersList" class="list"></div>
+      </div>
+      <div class="card">
+        <h3>User Detail</h3>
+        <p class="muted small" id="detailHint">Select a user from the list.</p>
+        <div id="detailMeta" class="detail-meta" style="display:none;">
+          <div class="detail-row"><span class="label">Email</span><span id="detailEmail"></span></div>
+          <div class="detail-row"><span class="label">Name</span><span id="detailName"></span></div>
+          <div class="detail-row"><span class="label">Total Saves</span><span id="detailSaves"></span></div>
+          <div class="detail-row"><span class="label">Last Entry</span><span id="detailLast"></span></div>
+        </div>
+        <div class="detail-block">
+          <p class="mini">History <span id="detailHistoryCount" class="muted small"></span></p>
+          <div id="detailHistory" class="list slim"></div>
+        </div>
+        <div class="detail-block">
+          <p class="mini">Logs <span id="detailLogsCount" class="muted small"></span></p>
+          <div id="detailLogs" class="list slim"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid second">
+      <div class="card">
+        <h3>Latest Logs (100)</h3>
+        <div id="logsList" class="list"></div>
+      </div>
+      <div class="card">
+        <h3>Per-User Histories</h3>
+        <div id="histories" class="list"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
